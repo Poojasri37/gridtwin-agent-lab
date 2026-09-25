@@ -12,8 +12,19 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ShellRouteImport } from './routes/_shell'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as ShellAgentsRouteImport } from './routes/_shell.agents'
+import { Route as ShellAlertsRouteImport } from './routes/_shell.alerts'
+import { Route as ShellAnalyticsRouteImport } from './routes/_shell.analytics'
+import { Route as ShellArchitectureRouteImport } from './routes/_shell.architecture'
+import { Route as ShellAssetsRouteImport } from './routes/_shell.assets'
 import { Route as ShellDashboardRouteImport } from './routes/_shell.dashboard'
 import { Route as ShellDigitalTwinRouteImport } from './routes/_shell.digital-twin'
+import { Route as ShellMaintenanceRouteImport } from './routes/_shell.maintenance'
+import { Route as ShellMapRouteImport } from './routes/_shell.map'
+import { Route as ShellMonitoringRouteImport } from './routes/_shell.monitoring'
+import { Route as ShellSettingsRouteImport } from './routes/_shell.settings'
+import { Route as ShellSimulationRouteImport } from './routes/_shell.simulation'
+import { Route as ShellWorkOrdersRouteImport } from './routes/_shell.work-orders'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,6 +40,31 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ShellAgentsRoute = ShellAgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAlertsRoute = ShellAlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAnalyticsRoute = ShellAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellArchitectureRoute = ShellArchitectureRouteImport.update({
+  id: '/architecture',
+  path: '/architecture',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellAssetsRoute = ShellAssetsRouteImport.update({
+  id: '/assets',
+  path: '/assets',
+  getParentRoute: () => ShellRoute,
+} as any)
 const ShellDashboardRoute = ShellDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -39,39 +75,143 @@ const ShellDigitalTwinRoute = ShellDigitalTwinRouteImport.update({
   path: '/digital-twin',
   getParentRoute: () => ShellRoute,
 } as any)
+const ShellMaintenanceRoute = ShellMaintenanceRouteImport.update({
+  id: '/maintenance',
+  path: '/maintenance',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellMapRoute = ShellMapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellMonitoringRoute = ShellMonitoringRouteImport.update({
+  id: '/monitoring',
+  path: '/monitoring',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellSettingsRoute = ShellSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellSimulationRoute = ShellSimulationRouteImport.update({
+  id: '/simulation',
+  path: '/simulation',
+  getParentRoute: () => ShellRoute,
+} as any)
+const ShellWorkOrdersRoute = ShellWorkOrdersRouteImport.update({
+  id: '/work-orders',
+  path: '/work-orders',
+  getParentRoute: () => ShellRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/agents': typeof ShellAgentsRoute
+  '/alerts': typeof ShellAlertsRoute
+  '/analytics': typeof ShellAnalyticsRoute
+  '/architecture': typeof ShellArchitectureRoute
+  '/assets': typeof ShellAssetsRoute
   '/dashboard': typeof ShellDashboardRoute
   '/digital-twin': typeof ShellDigitalTwinRoute
+  '/maintenance': typeof ShellMaintenanceRoute
+  '/map': typeof ShellMapRoute
+  '/monitoring': typeof ShellMonitoringRoute
+  '/settings': typeof ShellSettingsRoute
+  '/simulation': typeof ShellSimulationRoute
+  '/work-orders': typeof ShellWorkOrdersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/agents': typeof ShellAgentsRoute
+  '/alerts': typeof ShellAlertsRoute
+  '/analytics': typeof ShellAnalyticsRoute
+  '/architecture': typeof ShellArchitectureRoute
+  '/assets': typeof ShellAssetsRoute
   '/dashboard': typeof ShellDashboardRoute
   '/digital-twin': typeof ShellDigitalTwinRoute
+  '/maintenance': typeof ShellMaintenanceRoute
+  '/map': typeof ShellMapRoute
+  '/monitoring': typeof ShellMonitoringRoute
+  '/settings': typeof ShellSettingsRoute
+  '/simulation': typeof ShellSimulationRoute
+  '/work-orders': typeof ShellWorkOrdersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_shell': typeof ShellRouteWithChildren
   '/login': typeof LoginRoute
+  '/_shell/agents': typeof ShellAgentsRoute
+  '/_shell/alerts': typeof ShellAlertsRoute
+  '/_shell/analytics': typeof ShellAnalyticsRoute
+  '/_shell/architecture': typeof ShellArchitectureRoute
+  '/_shell/assets': typeof ShellAssetsRoute
   '/_shell/dashboard': typeof ShellDashboardRoute
   '/_shell/digital-twin': typeof ShellDigitalTwinRoute
+  '/_shell/maintenance': typeof ShellMaintenanceRoute
+  '/_shell/map': typeof ShellMapRoute
+  '/_shell/monitoring': typeof ShellMonitoringRoute
+  '/_shell/settings': typeof ShellSettingsRoute
+  '/_shell/simulation': typeof ShellSimulationRoute
+  '/_shell/work-orders': typeof ShellWorkOrdersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/dashboard' | '/digital-twin'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/agents'
+    | '/alerts'
+    | '/analytics'
+    | '/architecture'
+    | '/assets'
+    | '/dashboard'
+    | '/digital-twin'
+    | '/maintenance'
+    | '/map'
+    | '/monitoring'
+    | '/settings'
+    | '/simulation'
+    | '/work-orders'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/dashboard' | '/digital-twin'
+  to:
+    | '/'
+    | '/login'
+    | '/agents'
+    | '/alerts'
+    | '/analytics'
+    | '/architecture'
+    | '/assets'
+    | '/dashboard'
+    | '/digital-twin'
+    | '/maintenance'
+    | '/map'
+    | '/monitoring'
+    | '/settings'
+    | '/simulation'
+    | '/work-orders'
   id:
     | '__root__'
     | '/'
     | '/_shell'
     | '/login'
+    | '/_shell/agents'
+    | '/_shell/alerts'
+    | '/_shell/analytics'
+    | '/_shell/architecture'
+    | '/_shell/assets'
     | '/_shell/dashboard'
     | '/_shell/digital-twin'
+    | '/_shell/maintenance'
+    | '/_shell/map'
+    | '/_shell/monitoring'
+    | '/_shell/settings'
+    | '/_shell/simulation'
+    | '/_shell/work-orders'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -103,6 +243,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_shell/agents': {
+      id: '/_shell/agents'
+      path: '/agents'
+      fullPath: '/agents'
+      preLoaderRoute: typeof ShellAgentsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/alerts': {
+      id: '/_shell/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof ShellAlertsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/analytics': {
+      id: '/_shell/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof ShellAnalyticsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/architecture': {
+      id: '/_shell/architecture'
+      path: '/architecture'
+      fullPath: '/architecture'
+      preLoaderRoute: typeof ShellArchitectureRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/assets': {
+      id: '/_shell/assets'
+      path: '/assets'
+      fullPath: '/assets'
+      preLoaderRoute: typeof ShellAssetsRouteImport
+      parentRoute: typeof ShellRoute
+    }
     '/_shell/dashboard': {
       id: '/_shell/dashboard'
       path: '/dashboard'
@@ -117,17 +292,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ShellDigitalTwinRouteImport
       parentRoute: typeof ShellRoute
     }
+    '/_shell/maintenance': {
+      id: '/_shell/maintenance'
+      path: '/maintenance'
+      fullPath: '/maintenance'
+      preLoaderRoute: typeof ShellMaintenanceRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/map': {
+      id: '/_shell/map'
+      path: '/map'
+      fullPath: '/map'
+      preLoaderRoute: typeof ShellMapRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/monitoring': {
+      id: '/_shell/monitoring'
+      path: '/monitoring'
+      fullPath: '/monitoring'
+      preLoaderRoute: typeof ShellMonitoringRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/settings': {
+      id: '/_shell/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof ShellSettingsRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/simulation': {
+      id: '/_shell/simulation'
+      path: '/simulation'
+      fullPath: '/simulation'
+      preLoaderRoute: typeof ShellSimulationRouteImport
+      parentRoute: typeof ShellRoute
+    }
+    '/_shell/work-orders': {
+      id: '/_shell/work-orders'
+      path: '/work-orders'
+      fullPath: '/work-orders'
+      preLoaderRoute: typeof ShellWorkOrdersRouteImport
+      parentRoute: typeof ShellRoute
+    }
   }
 }
 
 interface ShellRouteChildren {
+  ShellAgentsRoute: typeof ShellAgentsRoute
+  ShellAlertsRoute: typeof ShellAlertsRoute
+  ShellAnalyticsRoute: typeof ShellAnalyticsRoute
+  ShellArchitectureRoute: typeof ShellArchitectureRoute
+  ShellAssetsRoute: typeof ShellAssetsRoute
   ShellDashboardRoute: typeof ShellDashboardRoute
   ShellDigitalTwinRoute: typeof ShellDigitalTwinRoute
+  ShellMaintenanceRoute: typeof ShellMaintenanceRoute
+  ShellMapRoute: typeof ShellMapRoute
+  ShellMonitoringRoute: typeof ShellMonitoringRoute
+  ShellSettingsRoute: typeof ShellSettingsRoute
+  ShellSimulationRoute: typeof ShellSimulationRoute
+  ShellWorkOrdersRoute: typeof ShellWorkOrdersRoute
 }
 
 const ShellRouteChildren: ShellRouteChildren = {
+  ShellAgentsRoute: ShellAgentsRoute,
+  ShellAlertsRoute: ShellAlertsRoute,
+  ShellAnalyticsRoute: ShellAnalyticsRoute,
+  ShellArchitectureRoute: ShellArchitectureRoute,
+  ShellAssetsRoute: ShellAssetsRoute,
   ShellDashboardRoute: ShellDashboardRoute,
   ShellDigitalTwinRoute: ShellDigitalTwinRoute,
+  ShellMaintenanceRoute: ShellMaintenanceRoute,
+  ShellMapRoute: ShellMapRoute,
+  ShellMonitoringRoute: ShellMonitoringRoute,
+  ShellSettingsRoute: ShellSettingsRoute,
+  ShellSimulationRoute: ShellSimulationRoute,
+  ShellWorkOrdersRoute: ShellWorkOrdersRoute,
 }
 
 const ShellRouteWithChildren = ShellRoute._addFileChildren(ShellRouteChildren)
